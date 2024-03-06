@@ -118,7 +118,7 @@ class AddJob(CreateView):
 
 class AddCategory(CreateView):
     """
-    view for displaying categoryForm
+    view for displaying CategoryForm
     """
 
     template_name = "myapp/form.html"
