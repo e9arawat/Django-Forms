@@ -1,0 +1,55 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+
+
+<div class="container p-5">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-3">
+
+        <div class="card shadow-sm">
+            <table class="table">
+                <tr>
+                    <td>Book</td>
+                    <td><a href="{% url 'add_book' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Car</td>
+                    <td><a href="{% url 'add_car' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Song</td>
+                    <td><a href="{% url 'add_song' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Movie</td>
+                    <td><a href="{% url 'add_movie' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Job</td>
+                    <td><a href="{% url 'add_job' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Product</td>
+                    <td><a href="{% url 'add_product' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Task</td>
+                    <td><a href="{% url 'add_task' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Post</td>
+                    <td><a href="{% url 'add_post' %}">+</a></td>
+                </tr>
+                <tr>
+                    <td>Enrollment</td>
+                    <td><a href="{% url 'add_enrollment' %}">+</a></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+    
+</div>
+
+
+{% endblock %}

@@ -15,10 +15,21 @@ from .forms import (
     TaskForm,
     PostForm,
     EnrollmentForm,
+    CategoryForm,
+    ProjectForm,
+    PostCategoryForm,
+    StudentForm,
+    CourseForm,
 )
 
 # Create your views here.
 
+
+class HomeView(TemplateView):
+    """
+    Home Vire
+    """
+    template_name = "myapp/index.html"
 
 class SuccessView(TemplateView):
     """
@@ -39,7 +50,7 @@ class AddBook(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Book"
+        context['heading'] = "Book"
         return context
 
 
@@ -54,7 +65,7 @@ class AddCar(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Car"
+        context['heading'] = "Car"
         return context
 
 
@@ -69,7 +80,7 @@ class AddSong(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Song"
+        context['heading'] = "Song"
         return context
 
 
@@ -84,7 +95,7 @@ class AddMovie(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Movie"
+        context['heading'] = "Movie"
         return context
 
 
@@ -99,9 +110,22 @@ class AddJob(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Job"
+        context['heading'] = "Job"
         return context
 
+class AddCategory(CreateView):
+    """
+    view for displaying categoryForm
+    """
+
+    template_name = "myapp/form.html"
+    form_class = CategoryForm
+    success_url = reverse_lazy("add_product")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['heading'] = "Category"
+        return context
 
 class AddProduct(CreateView):
     """
@@ -114,9 +138,26 @@ class AddProduct(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Product"
+        context['heading'] = "Product"
+        context['add'] = "Add Category"
+        context['url_name'] = "add_category"
         return context
 
+
+    
+class AddProject(CreateView):
+    """
+    view for displaying ProjectForm
+    """
+
+    template_name = "myapp/form.html"
+    form_class = ProjectForm
+    success_url = reverse_lazy("add_task")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['heading'] = "Project"
+        return context
 
 class AddTask(CreateView):
     """
@@ -129,7 +170,23 @@ class AddTask(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Task"
+        context['heading'] = "Task"
+        context['add'] = "Add Project"
+        context['url_name'] = "add_project"
+        return context
+
+class AddPostCategory(CreateView):
+    """
+    view for displaying PostCategoryForm
+    """
+
+    template_name = "myapp/form.html"
+    form_class = PostCategoryForm
+    success_url = reverse_lazy("add_post")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['heading'] = "Post Category"
         return context
 
 
@@ -144,9 +201,39 @@ class AddPost(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Post"
+        context['heading'] = "Post"
+        context['add'] = "Add Category"
+        context['url_name'] = "add_post_category"
         return context
 
+
+class AddStudent(CreateView):
+    """
+    view for displaying StudentForm
+    """
+
+    template_name = "myapp/form.html"
+    form_class = StudentForm
+    success_url = reverse_lazy("add_enrollment")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['heading'] = "Student"
+        return context
+    
+class AddCourse(CreateView):
+    """
+    view for displaying CourseForm
+    """
+
+    template_name = "myapp/form.html"
+    form_class = CourseForm
+    success_url = reverse_lazy("add_enrollment")
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['heading'] = "Course"
+        return context
 
 class AddEnrollment(CreateView):
     """
@@ -159,5 +246,13 @@ class AddEnrollment(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Add Enrollment"
+        context['heading'] = "Enrollment"
+        context['add'] = "Add Student"
+        context['url_name'] = "add_student"
+        context['add2'] = "Add Course"
+        context['url_name2'] = "add_course"
         return context
+    
+
+
+    

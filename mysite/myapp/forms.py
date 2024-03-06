@@ -3,7 +3,7 @@ All forms
 """
 
 from django import forms
-from .models import Book, Car, Song, Movie, JobPosting, Product, Task, Post, Enrollment
+from .models import Book, Car, Song, Movie, JobPosting, Product, Task, Post, Enrollment, Category, Project, PostCategory, Student, Course
 
 
 class BookForm(forms.ModelForm):
@@ -113,6 +113,23 @@ class JobPostingForm(forms.ModelForm):
         }
 
 
+class CategoryForm(forms.ModelForm):
+    """
+    form for adding a new category
+    """
+
+    class Meta:
+        """
+        Meta class
+        """
+
+        model = Category
+        fields = "__all__"
+
+        widgets  = {
+            "name" : forms.TextInput(attrs= {"class" : "form-control"})
+        }
+
 class ProductForm(forms.ModelForm):
     """
     form for adding a new product details
@@ -133,6 +150,23 @@ class ProductForm(forms.ModelForm):
         }
 
 
+class ProjectForm(forms.ModelForm):
+    """
+    form for adding a new project details
+    """
+
+    class Meta:
+        """
+        Meta Class
+        """
+        model = Project
+        fields = "__all__"
+
+        widgets = {
+            "name": forms.TextInput(attrs= {"class" : "form-control"}),
+            "description" : forms.Textarea(attrs= {"class" : "form-control"}),
+        }
+
 class TaskForm(forms.ModelForm):
     """
     form for adding a new task details
@@ -150,6 +184,23 @@ class TaskForm(forms.ModelForm):
             "name": forms.TextInput(attrs={"class": "form-control"}),
             "description": forms.Textarea(attrs={"class": "form-control"}),
             "project": forms.Select(attrs={"class": "form-control"}),
+        }
+
+class PostCategoryForm(forms.ModelForm):
+    """
+    form for adding a new enrollment details
+    """
+
+    class Meta:
+        """
+        Meta Class
+        """
+
+        model = PostCategory
+        fields = "__all__"
+
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
         }
 
 
@@ -190,4 +241,39 @@ class EnrollmentForm(forms.ModelForm):
             "student": forms.Select(attrs={"class": "form-control"}),
             "course": forms.Select(attrs={"class": "form-control"}),
             "grade": forms.TextInput(attrs={"class": "form-control"}),
+        }
+
+
+class StudentForm(forms.ModelForm):
+    """
+    form for adding a new student details
+    """
+
+    class Meta:
+        """
+        Meta Class
+        """
+
+        model = Student
+        fields = "__all__"
+
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+        }
+
+class CourseForm(forms.ModelForm):
+    """
+    form for adding a new student details
+    """
+
+    class Meta:
+        """
+        Meta Class
+        """
+
+        model = Course
+        fields = "__all__"
+
+        widgets = {
+            "name": forms.TextInput(attrs={"class": "form-control"}),
         }

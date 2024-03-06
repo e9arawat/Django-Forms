@@ -4,7 +4,22 @@
 
 
     <div class="container p-5">
-        <h3>{{heading}}</h3>
+        <div class="d-flex justify-content-between">
+            <div>
+                <h3>Add {{heading}}</h3>
+            </div>
+            {% if add %}
+                <div>
+                    <a class="btn btn-secondary" href="{% url url_name %}">{{add}}</a>            
+                </div>
+            {% endif %}
+
+            {% if add2 %}
+                <div>
+                    <a class="btn btn-secondary" href="{% url url_name2 %}">{{add2}}</a>            
+                </div>
+            {% endif %}
+        </div>
         <form action="" method="post">
 
             {% csrf_token %}
