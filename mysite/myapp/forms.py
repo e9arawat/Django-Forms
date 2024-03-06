@@ -3,7 +3,22 @@ All forms
 """
 
 from django import forms
-from .models import Book, Car, Song, Movie, JobPosting, Product, Task, Post, Enrollment, Category, Project, PostCategory, Student, Course
+from .models import (
+    Book,
+    Car,
+    Song,
+    Movie,
+    JobPosting,
+    Product,
+    Task,
+    Post,
+    Enrollment,
+    Category,
+    Project,
+    PostCategory,
+    Student,
+    Course,
+)
 
 
 class BookForm(forms.ModelForm):
@@ -126,9 +141,8 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = "__all__"
 
-        widgets  = {
-            "name" : forms.TextInput(attrs= {"class" : "form-control"})
-        }
+        widgets = {"name": forms.TextInput(attrs={"class": "form-control"})}
+
 
 class ProductForm(forms.ModelForm):
     """
@@ -159,13 +173,15 @@ class ProjectForm(forms.ModelForm):
         """
         Meta Class
         """
+
         model = Project
         fields = "__all__"
 
         widgets = {
-            "name": forms.TextInput(attrs= {"class" : "form-control"}),
-            "description" : forms.Textarea(attrs= {"class" : "form-control"}),
+            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "description": forms.Textarea(attrs={"class": "form-control"}),
         }
+
 
 class TaskForm(forms.ModelForm):
     """
@@ -185,6 +201,7 @@ class TaskForm(forms.ModelForm):
             "description": forms.Textarea(attrs={"class": "form-control"}),
             "project": forms.Select(attrs={"class": "form-control"}),
         }
+
 
 class PostCategoryForm(forms.ModelForm):
     """
@@ -260,6 +277,7 @@ class StudentForm(forms.ModelForm):
         widgets = {
             "name": forms.TextInput(attrs={"class": "form-control"}),
         }
+
 
 class CourseForm(forms.ModelForm):
     """

@@ -29,7 +29,9 @@ class HomeView(TemplateView):
     """
     Home Vire
     """
+
     template_name = "myapp/index.html"
+
 
 class SuccessView(TemplateView):
     """
@@ -46,11 +48,11 @@ class AddBook(CreateView):
 
     template_name = "myapp/form.html"
     form_class = BookForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Book"
+        context["heading"] = "Book"
         return context
 
 
@@ -61,11 +63,11 @@ class AddCar(CreateView):
 
     template_name = "myapp/form.html"
     form_class = CarForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Car"
+        context["heading"] = "Car"
         return context
 
 
@@ -76,11 +78,11 @@ class AddSong(CreateView):
 
     template_name = "myapp/form.html"
     form_class = SongForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Song"
+        context["heading"] = "Song"
         return context
 
 
@@ -91,11 +93,11 @@ class AddMovie(CreateView):
 
     template_name = "myapp/form.html"
     form_class = MovieForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Movie"
+        context["heading"] = "Movie"
         return context
 
 
@@ -106,12 +108,13 @@ class AddJob(CreateView):
 
     template_name = "myapp/form.html"
     form_class = JobPostingForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Job"
+        context["heading"] = "Job"
         return context
+
 
 class AddCategory(CreateView):
     """
@@ -124,8 +127,9 @@ class AddCategory(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Category"
+        context["heading"] = "Category"
         return context
+
 
 class AddProduct(CreateView):
     """
@@ -134,17 +138,16 @@ class AddProduct(CreateView):
 
     template_name = "myapp/form.html"
     form_class = ProductForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Product"
-        context['add'] = "Add Category"
-        context['url_name'] = "add_category"
+        context["heading"] = "Product"
+        context["add"] = "Add Category"
+        context["url_name"] = "add_category"
         return context
 
 
-    
 class AddProject(CreateView):
     """
     view for displaying ProjectForm
@@ -156,8 +159,9 @@ class AddProject(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Project"
+        context["heading"] = "Project"
         return context
+
 
 class AddTask(CreateView):
     """
@@ -166,14 +170,15 @@ class AddTask(CreateView):
 
     template_name = "myapp/form.html"
     form_class = TaskForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Task"
-        context['add'] = "Add Project"
-        context['url_name'] = "add_project"
+        context["heading"] = "Task"
+        context["add"] = "Add Project"
+        context["url_name"] = "add_project"
         return context
+
 
 class AddPostCategory(CreateView):
     """
@@ -186,7 +191,7 @@ class AddPostCategory(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Post Category"
+        context["heading"] = "Post Category"
         return context
 
 
@@ -197,13 +202,13 @@ class AddPost(CreateView):
 
     template_name = "myapp/form.html"
     form_class = PostForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Post"
-        context['add'] = "Add Category"
-        context['url_name'] = "add_post_category"
+        context["heading"] = "Post"
+        context["add"] = "Add Category"
+        context["url_name"] = "add_post_category"
         return context
 
 
@@ -218,9 +223,10 @@ class AddStudent(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Student"
+        context["heading"] = "Student"
         return context
-    
+
+
 class AddCourse(CreateView):
     """
     view for displaying CourseForm
@@ -232,8 +238,9 @@ class AddCourse(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Course"
+        context["heading"] = "Course"
         return context
+
 
 class AddEnrollment(CreateView):
     """
@@ -242,17 +249,13 @@ class AddEnrollment(CreateView):
 
     template_name = "myapp/form.html"
     form_class = EnrollmentForm
-    success_url = reverse_lazy("success")
+    success_url = reverse_lazy("index")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['heading'] = "Enrollment"
-        context['add'] = "Add Student"
-        context['url_name'] = "add_student"
-        context['add2'] = "Add Course"
-        context['url_name2'] = "add_course"
+        context["heading"] = "Enrollment"
+        context["add"] = "Add Student"
+        context["url_name"] = "add_student"
+        context["add2"] = "Add Course"
+        context["url_name2"] = "add_course"
         return context
-    
-
-
-    
